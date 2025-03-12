@@ -19,6 +19,7 @@ MESSAGE_TITLE = os.getenv(
 STATUS_COLORS = os.getenv("STATUS_COLORS", "")
 STATUS_FIELD = os.getenv("STATUS_FIELD", "detail.state")
 STATUS_MAPPING = os.getenv("STATUS_MAPPING", "")
+DEBUG = os.getenv("DEBUG", "false").lower() == "true"
 
 MESSAGE_FIELDS = [field.strip() for field in
                   MESSAGE_FIELDS.split(",")] if MESSAGE_FIELDS else []
@@ -32,6 +33,12 @@ STATE_MAP = {}
 if STATUS_MAPPING:
     STATE_MAP = {pair.split(":")[0]: pair.split(":")[1] for pair in
                  STATUS_MAPPING.split(",") if ":" in pair}
+
+
+def debug_log(message):
+    """Print debug messages only if DEBUG is enabled."""
+    if DEBUG:
+        print(message)
 
 
 def exponential_backoff(retries):
@@ -50,7 +57,7 @@ def extract_field(message, field_path):
 
 
 def map_custom_state(status):
-    return STATE_MAP.get(status.lower(), status)
+    return STATE_MAP.get(status, status)
 
 
 def get_status(message):
@@ -61,7 +68,7 @@ def get_status(message):
 def get_status_color(status):
     if not STATUS_COLOR_MAP:
         return None
-    return STATUS_COLOR_MAP.get(status.upper(), None)
+    return STATUS_COLOR_MAP.get(status, None)
 
 
 def format_slack_message(message):
@@ -71,7 +78,6 @@ def format_slack_message(message):
 
     status = get_status(message)
     color = get_status_color(status)
-    print(f"🔹 Extracted status: {status} → Mapped to color: {color}")
 
     formatted_fields = []
     for field in MESSAGE_FIELDS:
@@ -90,6 +96,14 @@ def format_slack_message(message):
 
     if color:
         slack_message["attachments"][0]["color"] = color
+
+    debug_log(f"STATE_MAP: {STATE_MAP}")
+    debug_log(f"STATUS_COLOR_MAP: {STATUS_COLOR_MAP}")
+    debug_log(
+        f"Extracted status: {status} → "
+        f"Mapped status: {map_custom_state(status)}"
+    )
+    debug_log(f"Mapped Color: {color}")
 
     return slack_message
 

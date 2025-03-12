@@ -120,6 +120,7 @@ resource "aws_lambda_function" "queue" {
       STATUS_COLORS     = var.status_colors
       STATUS_FIELD      = var.status_field
       STATUS_MAPPING    = var.status_mapping
+      DEBUG             = var.lambda_debug
     }
   }
 
@@ -150,6 +151,7 @@ resource "aws_lambda_function" "dlq" {
       STATUS_COLORS     = var.status_colors
       STATUS_FIELD      = var.status_field
       STATUS_MAPPING    = var.status_mapping
+      DEBUG             = var.lambda_debug
       IS_DLQ            = true
     }
   }

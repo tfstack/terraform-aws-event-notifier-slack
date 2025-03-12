@@ -48,6 +48,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_dlq_defaults"></a> [dlq\_defaults](#input\_dlq\_defaults) | Default settings for the dead-letter queue (DLQ) | <pre>object({<br/>    message_retention_seconds = number<br/>    max_receive_count         = number<br/>  })</pre> | <pre>{<br/>  "max_receive_count": 5,<br/>  "message_retention_seconds": 86400<br/>}</pre> | no |
 | <a name="input_eventbridge_rules"></a> [eventbridge\_rules](#input\_eventbridge\_rules) | List of EventBridge rules that share the same SQS queue | <pre>list(object({<br/>    name          = string<br/>    description   = string<br/>    event_pattern = string<br/>    enable_rule   = optional(bool, true)<br/>  }))</pre> | `[]` | no |
+| <a name="input_lambda_debug"></a> [lambda\_debug](#input\_lambda\_debug) | Enable debug mode for Lambda logging | `bool` | `false` | no |
 | <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | Retention period for CloudWatch logs in days | `number` | `30` | no |
 | <a name="input_message_fields"></a> [message\_fields](#input\_message\_fields) | Comma-separated list of message fields | `string` | n/a | yes |
 | <a name="input_message_title"></a> [message\_title](#input\_message\_title) | Title of the message sent to Slack | `string` | n/a | yes |
