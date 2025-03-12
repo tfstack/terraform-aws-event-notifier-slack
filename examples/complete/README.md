@@ -14,6 +14,9 @@ This Terraform module sets up an AWS-based event notification system that captur
 
 ## Supported Event Types
 
+> ⚠ **Disclaimer:**
+> The following are just **examples** of supported event types. This module can generate a **high volume of alerts**, depending on your AWS activity and configuration. Be mindful when enabling multiple event sources to avoid excessive notifications.
+
 This module can be used to monitor and notify on various AWS events, including but not limited to:
 
 - **EC2 Instance State Change Events**

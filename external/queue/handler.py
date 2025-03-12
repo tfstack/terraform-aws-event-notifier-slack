@@ -71,6 +71,7 @@ def format_slack_message(message):
 
     status = get_status(message)
     color = get_status_color(status)
+    print(f"🔹 Extracted status: {status} → Mapped to color: {color}")
 
     formatted_fields = []
     for field in MESSAGE_FIELDS:
