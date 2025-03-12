@@ -41,6 +41,12 @@ variable "log_retention_days" {
   }
 }
 
+variable "lambda_debug" {
+  description = "Enable debug mode for Lambda logging"
+  type        = bool
+  default     = false
+}
+
 # ----------------------------------------
 # SQS Configuration
 # ----------------------------------------
