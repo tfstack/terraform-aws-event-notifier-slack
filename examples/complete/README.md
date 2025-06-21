@@ -41,7 +41,7 @@ This module can be used to monitor and notify on various AWS events, including b
 module "aws_event_notifier" {
   source = "../.."
 
-  region = data.aws_region.current.name
+  region = data.aws_region.current.region
   name   = "s3-public-access-change"
   suffix = random_string.suffix.result
 

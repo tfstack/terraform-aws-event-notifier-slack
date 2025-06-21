@@ -1,7 +1,7 @@
 # module "aws_vpc_event" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-aws-vpc-event"
 #   suffix = random_string.suffix.result
 

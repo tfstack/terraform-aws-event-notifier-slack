@@ -1,7 +1,7 @@
 # module "aws_support_case_events" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-aws-support-case-events"
 #   suffix = random_string.suffix.result
 
@@ -64,7 +64,7 @@
 # module "aws_health_event" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-aws-health-event"
 #   suffix = random_string.suffix.result
 

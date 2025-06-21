@@ -2,7 +2,7 @@
 # module "ec2_auto_scaling_event" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-ec2-auto-scaling-event"
 #   suffix = random_string.suffix.result
 
