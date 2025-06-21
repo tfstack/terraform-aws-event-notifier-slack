@@ -1,7 +1,7 @@
 module "ec2_state_change" {
   source = "../.."
 
-  region = data.aws_region.current.name
+  region = data.aws_region.current.region
   name   = "${local.name}-ec2-state-change"
   suffix = random_string.suffix.result
 
@@ -45,7 +45,7 @@ module "ec2_state_change" {
 # module "ec2_sg_change" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-ec2-sg-change"
 #   suffix = random_string.suffix.result
 
@@ -95,7 +95,7 @@ module "ec2_state_change" {
 # module "ec2_eip_activity" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-ec2-eip-activity"
 #   suffix = random_string.suffix.result
 
@@ -157,7 +157,7 @@ module "ec2_state_change" {
 # module "ec2_spot_instance_events" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-ec2-spot-instance-events"
 #   suffix = random_string.suffix.result
 

@@ -1,7 +1,7 @@
 module "s3_public_access_events" {
   source = "../.."
 
-  region = data.aws_region.current.name
+  region = data.aws_region.current.region
   name   = "${local.name}-s3-public-access-events"
   suffix = random_string.suffix.result
 

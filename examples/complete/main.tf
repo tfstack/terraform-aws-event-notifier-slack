@@ -2,13 +2,13 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.84.0"
+      version = "6.0.0"
     }
   }
 }
 
 provider "aws" {
-  region = "ap-southeast-1"
+  region = "ap-southeast-2"
 }
 
 variable "slack_webhook_url" {
@@ -37,7 +37,6 @@ locals {
 module "vpc" {
   source = "tfstack/vpc/aws"
 
-  region             = "ap-southeast-1"
   vpc_name           = local.name
   vpc_cidr           = "10.0.0.0/16"
   availability_zones = data.aws_availability_zones.available.names
@@ -58,8 +57,6 @@ module "vpc" {
 
 module "s3_bucket" {
   source = "tfstack/s3/aws"
-
-  region = data.aws_region.current.name
 
   bucket_name         = local.name
   bucket_suffix       = random_string.suffix.result

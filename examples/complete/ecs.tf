@@ -1,7 +1,7 @@
 # module "ecs_container_events" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-ecs-container-events"
 #   suffix = random_string.suffix.result
 
@@ -53,7 +53,7 @@
 # module "ecs_task_events" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-ecs-task-events"
 #   suffix = random_string.suffix.result
 
@@ -123,7 +123,7 @@
 # module "ecs_deployment_events" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-ecs-deployment-events"
 #   suffix = random_string.suffix.result
 

@@ -1,7 +1,7 @@
 # module "aws_root_login_events" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-aws-root-login-events"
 #   suffix = random_string.suffix.result
 
@@ -54,7 +54,7 @@
 # module "iam_policy_change_events" {
 #   source = "../.."
 
-#   region = data.aws_region.current.name
+#   region = data.aws_region.current.region
 #   name   = "${local.name}-iam-policy-change-events"
 #   suffix = random_string.suffix.result
 

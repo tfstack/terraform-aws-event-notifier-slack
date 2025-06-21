@@ -217,7 +217,7 @@ resource "aws_iam_policy" "lambda" {
       {
         Effect   = "Allow",
         Action   = ["logs:CreateLogGroup"],
-        Resource = "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:*"
+        Resource = "arn:aws:logs:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:*"
       },
       {
         Effect = "Allow",
@@ -226,8 +226,8 @@ resource "aws_iam_policy" "lambda" {
           "logs:PutLogEvents"
         ],
         Resource = [
-          "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/${local.base_name}-slack-notify:log-stream:*",
-          "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/${local.base_name}-slack-notify-dlq:log-stream:*"
+          "arn:aws:logs:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/${local.base_name}-slack-notify:log-stream:*",
+          "arn:aws:logs:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/${local.base_name}-slack-notify-dlq:log-stream:*"
         ]
       }
     ]
